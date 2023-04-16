@@ -44,7 +44,8 @@ then
     export GIT="git"
 fi
 
-# python3 venv without trailing slash (defaults to ${install_dir}/${clone_dir}/venv)
+# python3 venv without trailing slash (defaults to ${install_dir}/${clone_dir}/
+venv)
 if [[ -z "${venv_dir}" ]]
 then
     venv_dir="venv"
@@ -158,7 +159,6 @@ printf "\n%s\n" "${delimiter}"
 cd "${install_dir}"/"${clone_dir}"/ || { printf "\e[1m\e[31mERROR: Can't cd to %s/%s/, aborting...\e[0m" "${install_dir}" "${clone_dir}"; exit 1; }
 if [[ ! -d "${venv_dir}" ]]
 then
-    "${python_cmd}" -m venv "${venv_dir}"
     first_launch=1
 fi
 # shellcheck source=/dev/null
